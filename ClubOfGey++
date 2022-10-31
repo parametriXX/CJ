@@ -1,0 +1,55 @@
+import pygame, sys
+import pygame as pg
+from pygame.locals import QUIT
+pygame.init()
+pygame.font.init()
+pygame.font.get_init()
+
+display_surface = pygame.display.set_mode((500, 500))
+music = pygame.mixer.music.load('backmusic.mp3')
+pygame.mixer.music.play(-1, 0.0)
+
+
+font1 = pygame.font.SysFont('freesanbold.ttf', 50)
+font2 = pygame.font.SysFont('chalkduster.ttf', 40)
+text1 = font1.render('Привет! Я Вова. Нажми, чтобы начать историю', True, (0, 255, 0))
+text2 = font2.render('твоя история начинается...', True, (0, 255, 0))
+
+clock = pygame.time.Clock()
+
+c = True
+while True:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+
+    pressed = pg.mouse.get_pressed()
+    pos = pg.mouse.get_pos()
+    if pressed[0]:
+      pg.time.delay(300)
+      pygame.display.flip()
+      DISPLAYSURF = pg.display.set_mode((1000, 1016))
+      background = pg.image.load('back.jpg')
+      DISPLAYSURF.blit(background, (0, 0))
+      screen = pg.image.load('23.jpg')
+      DISPLAYSURF.blit(screen, (500, 100))
+      DISPLAYSURF.blit(text1, (150, 380))
+      pg.display.update()
+      pg.time.delay(100)
+      
+    else:
+      pg.time.delay(300)
+      pygame.display.flip()
+      DISPLAYSURF = pg.display.set_mode((1000, 1016))
+      background = pg.image.load('back.jpg')
+      DISPLAYSURF.blit(background, (0, 0))
+      screen = pg.image.load('23.jpg')
+      DISPLAYSURF.blit(screen, (500, 100))
+      DISPLAYSURF.blit(text2, (150, 380))
+      pg.display.update()
+      pg.time.delay(100)
+ 
+ 
+    
+pygame.quit()
